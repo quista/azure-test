@@ -12,5 +12,5 @@ pool:
 steps:
 - script: |
     echo build task
-    dmidecode
+    sudo dmidecode
   displayName: 'Run a multi-line script'
