@@ -11,6 +11,11 @@ pool:
 
 steps:
 - script: |
-    echo build task
-    sudo dmidecode
-  displayName: 'Run a multi-line script'
+    sudo apt-get update
+    sudo apt -y full-upgrade
+  displayName: 'Updating packages'
+
+- script: |
+    sudo apt -y install openjdk-11-jre
+  displayName: 'Install OpenJDK Java runtime'
+  
