@@ -7,14 +7,16 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-18.04'
 
 steps:
+- script: |
+    sudo lsb_release -a
+    displayName: 'Show release'
 - script: |
     sudo apt-get update
     sudo apt -y full-upgrade
   displayName: 'Updating packages'
-
 - script: |
     sudo apt -y install openjdk-11-jre
   displayName: 'Install OpenJDK Java runtime'
