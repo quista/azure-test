@@ -3,24 +3,11 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
 - master
-
-jobs:
-- job: Ubuntu
-  pool:
-    vmImage: 'ubuntu-18.04'
-  steps:
-  - script: lsb_release -a
-    displayName: 'Show release'
-  - script: |
-      pwd
-      cat test
-  
-trigger:
-  branches:
-    include:
-      - feature
+- feature/*
 
 jobs:
 - job: Ubuntu
