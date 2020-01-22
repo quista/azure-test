@@ -17,5 +17,5 @@ jobs:
   - script: lsb_release -a
     displayName: 'Show release'
   - script: |
+      ls
       pwd
-      cat test
