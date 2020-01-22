@@ -7,18 +7,28 @@ trigger:
 - master
 
 jobs:
-
-- job: MacOS
-  pool:
-    vmImage: 'macOS-10.14'
-  steps:
-  - script: system_profiler SPSoftwareDataType
-    displayName: 'Show release'
-
 - job: Ubuntu
   pool:
     vmImage: 'ubuntu-18.04'
   steps:
   - script: lsb_release -a
     displayName: 'Show release'
+  - script: |
+      pwd
+      cat test
   
+trigger:
+  branches:
+    include:
+      - feature
+
+jobs:
+- job: Ubuntu
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+  - script: lsb_release -a
+    displayName: 'Show release'
+  - script: |
+      pwd
+      cat test
